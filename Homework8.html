@@ -611,7 +611,65 @@ knitr::kable(Student_Survey_BMI_maxmin %&gt;% head(n=6))</code></pre>
 </table>
 </div>
 <div id="verbal-and-math-sat-scores" class="section level1">
-<h1>Verbal and Math SAT Scores</h1>
+<h1>Verbal and Math SAT Scores<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></h1>
+<pre class="r"><code>Student_Survey_SAT &lt;- StudentSurvey %&gt;%
+  mutate(
+    higher_score = case_when(
+      HigherSAT == &quot;Math&quot; ~ MathSAT,
+      HigherSAT == &quot;Verbal&quot; ~ VerbalSAT
+    ),
+    .keep = &quot;used&quot;
+  )
+
+knitr::kable(Student_Survey_SAT %&gt;% head(n=6))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">HigherSAT</th>
+<th align="right">VerbalSAT</th>
+<th align="right">MathSAT</th>
+<th align="right">higher_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Math</td>
+<td align="right">540</td>
+<td align="right">670</td>
+<td align="right">670</td>
+</tr>
+<tr class="even">
+<td align="left">Math</td>
+<td align="right">520</td>
+<td align="right">630</td>
+<td align="right">630</td>
+</tr>
+<tr class="odd">
+<td align="left">Math</td>
+<td align="right">550</td>
+<td align="right">560</td>
+<td align="right">560</td>
+</tr>
+<tr class="even">
+<td align="left">Math</td>
+<td align="right">490</td>
+<td align="right">630</td>
+<td align="right">630</td>
+</tr>
+<tr class="odd">
+<td align="left">Verbal</td>
+<td align="right">720</td>
+<td align="right">450</td>
+<td align="right">720</td>
+</tr>
+<tr class="even">
+<td align="left">Verbal</td>
+<td align="right">600</td>
+<td align="right">550</td>
+<td align="right">600</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="z-score-for-total-sat-scores" class="section level1">
 <h1>Z-Score for Total SAT Scores</h1>
@@ -622,6 +680,7 @@ knitr::kable(Student_Survey_BMI_maxmin %&gt;% head(n=6))</code></pre>
 <li id="fn1"><p>Question 1 complete<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Question 2 complete<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Question 3 complete<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Question 4 complete<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

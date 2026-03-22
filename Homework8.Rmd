@@ -61,10 +61,19 @@ Student_Survey_BMI_maxmin <- Student_Survey_BMI %>%
 knitr::kable(Student_Survey_BMI_maxmin %>% head(n=6))
 ```
 
-# Verbal and Math SAT Scores
+# Verbal and Math SAT Scores^[Question 4 complete]
 
 ```{r}
+Student_Survey_SAT <- StudentSurvey %>%
+  mutate(
+    higher_score = case_when(
+      HigherSAT == "Math" ~ MathSAT,
+      HigherSAT == "Verbal" ~ VerbalSAT
+    ),
+    .keep = "used"
+  )
 
+knitr::kable(Student_Survey_SAT %>% head(n=6))
 ```
 
 # Z-Score for Total SAT Scores
