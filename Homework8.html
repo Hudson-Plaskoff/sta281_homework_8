@@ -509,7 +509,74 @@ knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
 </table>
 </div>
 <div id="binned-bmi-data" class="section level1">
-<h1>Binned BMI Data</h1>
+<h1>Binned BMI Data<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h1>
+<pre class="r"><code>Student_Survey_BMI &lt;- Student_Survey_BMI %&gt;% 
+  mutate(
+    BMI_range = case_when(
+      BMI &lt; 18.5 ~ &quot;underweight&quot;,
+      BMI &lt; 25 ~ &quot;healthy weight&quot;,
+      BMI &lt; 30 ~ &quot;overweight&quot;,
+      BMI &lt; Inf ~ &quot;obese&quot;,
+      is.na(BMI) ~ &quot;n/a&quot;,
+    )
+  )
+
+knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Sex</th>
+<th align="right">Weight</th>
+<th align="right">Height</th>
+<th align="right">BMI</th>
+<th align="left">BMI_range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">M</td>
+<td align="right">180</td>
+<td align="right">71</td>
+<td align="right">25.03075</td>
+<td align="left">overweight</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">120</td>
+<td align="right">66</td>
+<td align="right">19.31129</td>
+<td align="left">healthy weight</td>
+</tr>
+<tr class="odd">
+<td align="left">M</td>
+<td align="right">208</td>
+<td align="right">72</td>
+<td align="right">28.12654</td>
+<td align="left">overweight</td>
+</tr>
+<tr class="even">
+<td align="left">M</td>
+<td align="right">110</td>
+<td align="right">63</td>
+<td align="right">19.42807</td>
+<td align="left">healthy weight</td>
+</tr>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">150</td>
+<td align="right">65</td>
+<td align="right">24.88757</td>
+<td align="left">healthy weight</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">114</td>
+<td align="right">65</td>
+<td align="right">18.91456</td>
+<td align="left">healthy weight</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="highest-and-lowest-bmis" class="section level1">
 <h1>Highest and Lowest BMIs</h1>
@@ -524,6 +591,7 @@ knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
 <hr />
 <ol>
 <li id="fn1"><p>Question 1 complete<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Question 2 complete<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

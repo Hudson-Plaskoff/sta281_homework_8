@@ -31,10 +31,21 @@ Student_Survey_BMI <- StudentSurvey %>%
 knitr::kable(Student_Survey_BMI %>% head(n=6))
 ```
 
-# Binned BMI Data
+# Binned BMI Data^[Question 2 complete]
 
 ```{r}
+Student_Survey_BMI <- Student_Survey_BMI %>% 
+  mutate(
+    BMI_range = case_when(
+      BMI < 18.5 ~ "underweight",
+      BMI < 25 ~ "healthy weight",
+      BMI < 30 ~ "overweight",
+      BMI < Inf ~ "obese",
+      is.na(BMI) ~ "n/a",
+    )
+  )
 
+knitr::kable(Student_Survey_BMI %>% head(n=6))
 ```
 
 # Highest and Lowest BMIs
