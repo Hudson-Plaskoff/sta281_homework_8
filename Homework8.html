@@ -510,7 +510,7 @@ knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
 </div>
 <div id="binned-bmi-data" class="section level1">
 <h1>Binned BMI Data<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></h1>
-<pre class="r"><code>Student_Survey_BMI &lt;- Student_Survey_BMI %&gt;% 
+<pre class="r"><code>Student_Survey_BMI &lt;- Student_Survey_BMI %&gt;%
   mutate(
     BMI_range = case_when(
       BMI &lt; 18.5 ~ &quot;underweight&quot;,
@@ -579,7 +579,36 @@ knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
 </table>
 </div>
 <div id="highest-and-lowest-bmis" class="section level1">
-<h1>Highest and Lowest BMIs</h1>
+<h1>Highest and Lowest BMIs<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h1>
+<pre class="r"><code>Student_Survey_BMI_maxmin &lt;- Student_Survey_BMI %&gt;%
+  group_by(Sex) %&gt;%
+  summarize(
+    max=max(BMI, na.rm=TRUE),
+    min=min(BMI, na.rm=TRUE)
+  )
+
+knitr::kable(Student_Survey_BMI_maxmin %&gt;% head(n=6))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Sex</th>
+<th align="right">max</th>
+<th align="right">min</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">35.05000</td>
+<td align="right">13.22833</td>
+</tr>
+<tr class="even">
+<td align="left">M</td>
+<td align="right">41.50542</td>
+<td align="right">17.30864</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="verbal-and-math-sat-scores" class="section level1">
 <h1>Verbal and Math SAT Scores</h1>
@@ -592,6 +621,7 @@ knitr::kable(Student_Survey_BMI %&gt;% head(n=6))</code></pre>
 <ol>
 <li id="fn1"><p>Question 1 complete<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Question 2 complete<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Question 3 complete<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

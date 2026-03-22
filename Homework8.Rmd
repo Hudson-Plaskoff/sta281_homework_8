@@ -34,7 +34,7 @@ knitr::kable(Student_Survey_BMI %>% head(n=6))
 # Binned BMI Data^[Question 2 complete]
 
 ```{r}
-Student_Survey_BMI <- Student_Survey_BMI %>% 
+Student_Survey_BMI <- Student_Survey_BMI %>%
   mutate(
     BMI_range = case_when(
       BMI < 18.5 ~ "underweight",
@@ -48,10 +48,17 @@ Student_Survey_BMI <- Student_Survey_BMI %>%
 knitr::kable(Student_Survey_BMI %>% head(n=6))
 ```
 
-# Highest and Lowest BMIs
+# Highest and Lowest BMIs^[Question 3 complete]
 
 ```{r}
+Student_Survey_BMI_maxmin <- Student_Survey_BMI %>%
+  group_by(Sex) %>%
+  summarize(
+    max=max(BMI, na.rm=TRUE),
+    min=min(BMI, na.rm=TRUE)
+  )
 
+knitr::kable(Student_Survey_BMI_maxmin %>% head(n=6))
 ```
 
 # Verbal and Math SAT Scores
