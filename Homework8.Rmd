@@ -14,12 +14,43 @@ library(knitr)
 library(Lock5Data)
 ```
 
-# BMI Data
+# BMI Data^[Question 1 complete]
+
+```{r}
+Student_Survey_BMI <- StudentSurvey %>%
+  mutate(
+    BMI = 701*(Weight/Height^2)
+  ) %>%
+  select(
+    Sex,
+    Weight,
+    Height,
+    BMI
+  )
+
+knitr::kable(Student_Survey_BMI %>% head(n=6))
+```
 
 # Binned BMI Data
 
+```{r}
+
+```
+
 # Highest and Lowest BMIs
+
+```{r}
+
+```
 
 # Verbal and Math SAT Scores
 
+```{r}
+
+```
+
 # Z-Score for Total SAT Scores
+
+```{r}
+
+```
