@@ -1,0 +1,25 @@
+---
+title: "Homework8"
+author: "HudsonPlaskoff"
+date: "2026-03-22"
+output:
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(Lock5Data)
+```
+
+# BMI Data
+
+# Binned BMI Data
+
+# Highest and Lowest BMIs
+
+# Verbal and Math SAT Scores
+
+# Z-Score for Total SAT Scores
